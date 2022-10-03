@@ -1,3 +1,12 @@
+# Production ready code comments
+
+Api requests should be taken to a seperate file and written in a reusable way
+Error handling should be added for requests
+Styling should be improved to handle pending/failed requests for better UI/UX
+I usually use scss. Thats the reason I chained selectors (I would nest them in scss) even though it isn't needed.
+Possible improvement in naming of variables/functions/classnames.
+Unit tests should be added.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

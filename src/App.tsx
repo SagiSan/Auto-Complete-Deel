@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { AutoComplete } from "./components/AutoComplete/AutoComplete";
+
+interface IProduct {
+  brand: string;
+  category: string;
+  description: string;
+  discountPercentage: number;
+  id: number;
+  images: string[];
+  price: number;
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  title: string;
+}
 
 function App() {
+  const [searchValue, setSearchValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  const onChangeSearchValue = async (value: string) => {
+    setSearchValue(value);
+    const results = await getResults(value);
+    setSuggestions(results);
+  };
+
+  const getResults = async (value: string) => {
+    const results = await fetch(
+      `https://dummyjson.com/products/search?q=${value}`
+    ).then((res) => res.json());
+    return results?.products?.map((item: IProduct) => item.title);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Auto Complete Component Demo</h1>
       </header>
+      <main>
+        <AutoComplete
+          searchValue={searchValue}
+          onChangeSearchValue={onChangeSearchValue}
+          suggestions={suggestions}
+        />
+      </main>
     </div>
   );
 }

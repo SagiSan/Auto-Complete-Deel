@@ -1,0 +1,41 @@
+.AutoComplete {
+  width: 40%;
+}
+.AutoComplete .search-input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background: #fff;
+  border: 1px solid #d5e3fc;
+  height: auto;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+.AutoComplete .search-suggestions {
+  border: 1px solid #d5e3fc;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.AutoComplete .search-suggestions li {
+  border-bottom: 1px solid #d5e3fc;
+  padding: 10px;
+  color: #131533;
+  cursor: pointer;
+}
+.AutoComplete .search-suggestions li:hover {
+  background-color: #d5e3fc;
+}
+.AutoComplete .search-message {
+  display: block;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ef6b51;
+}
